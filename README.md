@@ -1,76 +1,121 @@
 # 🧠 Knowledge Graph Enhanced RAG for Enterprise Documents
 
-**Intelligent document retrieval using Knowledge Graphs, Neo4j, LangChain, and Large Language Models.**
+### Intelligent Retrieval-Augmented Generation with Knowledge Graphs, Neo4j, LangChain & LLMs
 
-This repository explores how knowledge graphs can complement Retrieval-Augmented Generation (RAG) workflows by representing entities and their relationships in a graph database. It includes focused examples and experiments for building, querying, and using graph-based context with language models.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Neo4j](https://img.shields.io/badge/Database-Neo4j-green.svg)](https://neo4j.com/)
+[![LangChain](https://img.shields.io/badge/Framework-LangChain-1C3C3C.svg)](https://www.langchain.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
----
+Knowledge Graphs · Hybrid Retrieval · Entity Extraction · Context-Aware Question Answering
 
 ## 🌟 Overview
 
-Traditional RAG systems commonly retrieve relevant text chunks from a document collection. Knowledge Graph RAG adds a structured representation of entities and relationships, making it possible to explore connections that may be difficult to capture through text similarity alone.
+**Knowledge Graph Enhanced RAG for Enterprise Documents** is a Python-based project exploring Retrieval-Augmented Generation (RAG) using knowledge graphs, Neo4j, LangChain, and Large Language Models (LLMs).
 
-This project brings together:
+Traditional RAG systems primarily retrieve information through semantic similarity searches over unstructured documents. Knowledge Graph RAG extends this approach by representing information as interconnected entities and relationships, enabling structured retrieval and relationship-aware information discovery.
 
-- **Knowledge graph construction** to represent entities and relationships.
-- **Neo4j** for storing and querying graph data.
-- **LangChain and LLM integrations** for retrieval and question-answering workflows.
-- **Domain-focused examples** to demonstrate how graph-based context can be applied.
+This repository demonstrates different approaches to creating, storing, querying, and leveraging knowledge graphs alongside retrieval workflows.
 
-The repository is organized into separate modules so that each example can be explored independently.
+The project includes:
 
-## ✨ Features
+- **Simple Knowledge Graph:** Basic Neo4j operations for creating and querying graph data.
+- **Knowledge Graph RAG:** Graph-enhanced retrieval and question answering using LangChain.
+- **Healthcare Knowledge Graph:** Domain-specific graph construction and healthcare data queries.
+- **Text Preparation for RAG:** Text preparation and processing for retrieval workflows.
 
-- Build and query knowledge graphs with Neo4j.
-- Explore graph-based retrieval workflows.
-- Connect graph context with LLM-powered question answering.
-- Work through example domains, including healthcare and Roman Empire knowledge.
-- Prepare text for downstream RAG workflows.
-- Keep examples separated into focused Python packages.
+## ✨ Key Features
 
-## 🏗️ Architecture
+### 🔗 Knowledge Graph Engineering
 
-The high-level workflow demonstrated by this project is:
+- Entity extraction and relationship mapping.
+- Knowledge graph creation and management using Neo4j.
+- Manual entity and relationship creation.
+- Knowledge graph construction from structured data such as CSV files.
+- LLM-powered entity extraction from text.
+
+### 🔍 Intelligent Retrieval
+
+- Graph-based information retrieval.
+- Full-text search capabilities.
+- Hybrid retrieval combining structured and unstructured information.
+- Relationship-aware information exploration.
+- Contextual retrieval for question answering.
+
+### 🤖 LLM-Powered RAG
+
+- LangChain-based RAG pipeline implementation.
+- LLM-powered entity extraction.
+- Context-aware question answering.
+- Conversation history handling.
+- Integration of knowledge graph information with document retrieval.
+
+### 🏥 Domain-Specific Examples
+
+- Healthcare knowledge graph and data querying.
+- Roman Empire knowledge graph RAG example.
+- Text preparation utilities for RAG applications.
+
+## 🏗️ System Architecture
+
+The project explores how structured knowledge and unstructured information can work together in a retrieval-augmented generation workflow.
 
 ```text
-              Documents / Example Data
-                         |
-                         v
-                 Text Preparation
-                         |
-                         v
-              Entity & Relationship
-                    Extraction
-                         |
-                         v
-                 Knowledge Graph
-                      (Neo4j)
-                         |
-                         v
-                Graph-Based Retrieval
-                         |
-                         v
-                  Relevant Context
-                         |
-                         v
-                 Language Model
-                         |
-                         v
-                  Generated Answer
+              KNOWLEDGE GRAPH ENHANCED RAG
+                          |
+                          v
+                  Knowledge Sources
+                  /       |        \
+                 /        |         \
+          Text Data   Structured   Domain-Specific
+                     Data (CSV)       Data
+                 \        |         /
+                  \       |        /
+                          v
+                Data Processing
+                          |
+             +------------+------------+
+             |                         |
+             v                         v
+        Text Preparation        Entity Extraction
+                                       |
+                                       v
+                              Relationship Mapping
+                                       |
+                                       v
+                             Neo4j Knowledge Graph
+                                       |
+                                       v
+                          Retrieval & RAG Pipeline
+                          /          |           \
+                         /           |            \
+                  Graph Search  Full-Text Search  Vector Search
+                         \           |            /
+                          \          |           /
+                           v         v          v
+                              Context Assembly
+                                      |
+                                      v
+                              LangChain + OpenAI
+                                      |
+                                      v
+                         Context-Aware Question
+                                  Answering
 ```
 
-The exact processing steps and integrations may differ between modules. Refer to each module's implementation for its specific workflow.
+## 🧰 Technology Stack
 
-## 🧰 Tech Stack
-
-| Technology | Purpose |
+| Category | Technologies |
 |---|---|
-| Python | Application and workflow implementation |
-| Neo4j | Graph database and Cypher queries |
-| LangChain | LLM application and chain integrations |
-| OpenAI API | Language-model integration where configured |
-| Knowledge Graphs | Structured representation of entities and relationships |
-| RAG | Retrieval-grounded question answering |
+| Programming Language | Python |
+| Graph Database | Neo4j |
+| Graph Database Hosting | Neo4j Aura |
+| RAG Framework | LangChain |
+| Language Models | OpenAI |
+| Knowledge Representation | Entities and Relationships |
+| Retrieval | Graph Search, Full-Text Search, Hybrid Retrieval |
+| Data Processing | CSV, Text Processing |
+| Configuration | Environment Variables |
 
 ## 📁 Project Structure
 
@@ -97,141 +142,207 @@ Knowledge-Graph-Enhanced-RAG-for-Enterprise-Documents/
 └── requirements.txt
 ```
 
+### Directory Description
+
+| Directory / File | Description |
+|---|---|
+| `simple_kg/` | Basic Neo4j knowledge graph operations. |
+| `kgraph_rag/` | Roman Empire knowledge graph RAG implementation. |
+| `prep_text_for_rag/` | Text preparation and processing for RAG workflows. |
+| `healthcare/` | Healthcare knowledge graph examples and sample dataset. |
+| `requirements.txt` | Python project dependencies. |
+| `.gitignore` | Files and directories excluded from Git. |
+| `LICENSE` | MIT License. |
+
 ## 🚀 Getting Started
 
-### 1. Prerequisites
+### 📋 Prerequisites
 
-- Python 3.8 or later (use the version supported by the dependencies in this repository).
-- Access to a Neo4j database, such as Neo4j Aura or a local Neo4j instance, for modules that use Neo4j.
-- An OpenAI API key if you run modules configured to use the OpenAI API.
+Before running the project, make sure you have:
 
-### 2. Clone the repository
+- Python 3.8 or later.
+- A Neo4j Aura instance or locally running Neo4j database.
+- An OpenAI API key for the LLM-related functionality.
+- Git installed.
+- Internet connectivity for cloud services and API access.
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/pushpakrai/Knowledge-Graph-Enhanced-RAG-for-Enterprise-Documents.git
+
 cd Knowledge-Graph-Enhanced-RAG-for-Enterprise-Documents
 ```
 
-### 3. Create and activate a virtual environment
+### 2. Create a Virtual Environment
 
-**Windows (Command Prompt):**
+**Windows (PowerShell):**
 
-```cmd
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 ```
 
-**macOS / Linux:**
+**Linux / macOS:**
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 4. Install dependencies
+### 3. Install Dependencies
 
 ```bash
 python -m pip install --upgrade pip
+
 pip install -r requirements.txt
 ```
 
-### 5. Configure environment variables
+### 4. Configure Environment Variables
 
-Create a local `.env` file in the location expected by the relevant module. Never commit this file or place real credentials in source code, notebooks, documentation, screenshots, or Git history.
+Create a `.env` file in the project root directory.
 
-Example template (use only the variable names actually read by your code):
+Add your Neo4j and OpenAI configuration:
 
 ```env
-NEO4J_URI=
-NEO4J_USERNAME=
-NEO4J_PASSWORD=
-OPENAI_API_KEY=
+AURA_INSTANCENAME=your_aura_instance_name
+
+NEO4J_URI=your_neo4j_uri
+NEO4J_USERNAME=your_neo4j_username
+NEO4J_PASSWORD=your_neo4j_password
+
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_ENDPOINT=your_openai_endpoint
 ```
 
-If a module requires additional settings, check its source code and configure those values locally. Keep `.env` excluded through `.gitignore`.
+Replace the placeholder values with your own credentials and configuration.
 
-## ▶️ Running the Examples
+**Important:** Never commit your `.env` file or expose database credentials and API keys in source code.
 
-Run commands from the repository root unless a module's code specifies otherwise.
+## 💻 Usage Examples
 
-### Simple knowledge graph
+### 1. 🔗 Simple Knowledge Graph
 
-```bash
-python -c "from simple_kg.kg_simple import connect_and_query; connect_and_query()"
+The simple knowledge graph implementation demonstrates connecting to Neo4j and executing graph operations.
+
+```python
+from simple_kg.kg_simple import connect_and_query
+
+# Connect to Neo4j and execute graph operations
+connect_and_query()
 ```
 
-### Knowledge Graph RAG example
+### 2. 🧠 Knowledge Graph RAG — Roman Empire
+
+The Roman Empire implementation demonstrates graph-enhanced retrieval and question answering using LangChain.
 
 ```python
 from kgraph_rag.roman_emp_graph_rag import chain
 
-response = chain.invoke("Ask a question about the Roman Empire")
+# Ask a question about the Roman Empire
+response = chain.invoke({
+    "question": "Who was the first Roman emperor?"
+})
+
 print(response)
 ```
 
-### Healthcare example
+### 3. 🏥 Healthcare Knowledge Graph
 
-```python
-from healthcare.health_care_langchain import health_care_chain
+The healthcare implementation demonstrates domain-specific knowledge graph operations and Neo4j queries.
 
-response = health_care_chain.invoke(
-    "Ask a question supported by the healthcare example data"
-)
-print(response)
+Run the healthcare query example:
+
+```bash
+python healthcare/health_care_langchain.py
 ```
 
-### Text preparation
+The script executes the configured healthcare graph queries and displays the retrieved results.
+
+### 4. 📝 Text Preparation for RAG
+
+The text preparation module provides text processing and retrieval-related functionality.
+
+Explore and run:
 
 ```bash
 python prep_text_for_rag/app.py
 ```
 
-These are example entry points based on the repository's module layout. Verify the expected input format and configuration in each module before running the examples.
+This example requires the relevant Neo4j configuration and vector index to be available.
 
-## 🧩 Core Concepts
+## 🧩 Core Components
 
-### Knowledge Graphs
+### 🔗 Knowledge Graph Creation
 
-A knowledge graph represents information as entities and relationships. This makes connections between concepts explicit and allows graph queries to traverse those relationships.
+The repository demonstrates different approaches to knowledge graph construction:
 
-### Retrieval-Augmented Generation
+- Manual entity and relationship creation.
+- Automated entity extraction from text using LLMs.
+- Knowledge graph creation from structured CSV data.
+- Storage and querying through Neo4j.
 
-RAG retrieves relevant information and supplies it to a language model as context for generating an answer. The quality of the response depends on the retrieved context and the model's ability to use it.
+### 🔍 RAG Implementation
 
-### Graph-Enhanced Retrieval
+The RAG workflow explores combining:
 
-Graph-enhanced retrieval can add relationship-aware context to a RAG workflow. The examples in this repository are intended to help explore this approach using Neo4j and LLM integrations.
+- Structured information retrieval from knowledge graphs.
+- Unstructured information retrieval using vector search.
+- Full-text and hybrid retrieval.
+- Context assembly for LLM-based question answering.
+- Conversation history for contextual interactions.
 
-## 💡 Potential Use Cases
+### 🧩 Entity Extraction & Relationship Mapping
 
-Knowledge Graph RAG patterns can be useful when information is highly connected, for example:
+Entity extraction identifies meaningful information from text and represents it as structured graph data.
 
-- Enterprise knowledge discovery across related documents and concepts.
-- Exploring relationships between people, organizations, products, or processes.
-- Domain-specific question answering where entity relationships matter.
-- Healthcare knowledge exploration using appropriately governed and authorized data.
+The extracted entities and their relationships can be stored in a knowledge graph to support querying and information discovery.
 
-These are potential application areas, not claims that this repository is a validated production system.
+### 💬 Context-Aware Question Answering
 
-## 🔐 Security Notes
+Retrieved graph information and contextual information are used to support LLM-powered responses.
 
-- Never commit API keys, database passwords, access tokens, or populated credential files.
-- Store secrets in local environment variables or an approved secrets manager.
-- Keep `.env` and other local secret files in `.gitignore`.
-- If a credential has ever been pushed to a public repository, rotate or revoke it immediately. Deleting the file in a later commit does **not** remove it from earlier Git history.
-- Before publishing, inspect the repository history and remove exposed secrets from all affected refs. Coordinate history rewrites with collaborators.
+The Roman Empire RAG implementation also demonstrates handling conversation history as part of the question-answering workflow.
 
-## 🛣️ Possible Future Enhancements
+## 🏢 Potential Enterprise Applications
 
-- Add automated tests for graph creation, retrieval, and answer generation.
-- Add evaluation datasets and retrieval / answer-quality metrics.
-- Document each module's configuration and execution steps.
-- Add observability for retrieval latency, failures, and model usage.
-- Explore hybrid graph and vector retrieval where supported by the implementation.
+Knowledge Graph Enhanced RAG can be useful in information systems where relationships between entities, records, and documents matter.
+
+Potential application areas include:
+
+- Enterprise document search and knowledge discovery.
+- Healthcare information retrieval.
+- Historical and domain-specific knowledge exploration.
+- Relationship-based information discovery.
+- Context-aware AI assistants.
+- Structured knowledge management.
+
+## 🔐 Security Best Practices
+
+- Never hardcode API keys, passwords, or database credentials.
+- Keep `.env` files out of version control.
+- Use `.gitignore` to exclude sensitive configuration files.
+- Use secure and appropriately scoped Neo4j credentials.
+- Rotate credentials immediately if they are accidentally exposed.
+- Avoid committing private configuration files or credential notes.
+
+## 🛠️ Future Enhancements
+
+Potential areas for extending this project include:
+
+- Advanced enterprise document ingestion.
+- Automated knowledge graph construction from multiple document formats.
+- Improved graph and vector retrieval integration.
+- Graph-based relevance ranking and retrieval optimization.
+- Multi-hop graph reasoning.
+- Enhanced conversational memory.
+- Retrieval evaluation and performance benchmarking.
 
 ## 🤝 Contributing
 
-Contributions, suggestions, and issue reports are welcome.
+Contributions, suggestions, and improvements are welcome!
+
+To contribute:
 
 1. Fork the repository.
 2. Create a feature branch:
@@ -240,15 +351,31 @@ Contributions, suggestions, and issue reports are welcome.
    git checkout -b feat/your-feature
    ```
 
-3. Make a focused change and add or update tests where appropriate.
-4. Verify that no secrets or private data are included.
-5. Open a pull request with a clear description of the change.
+3. Implement and test your changes.
+4. Commit your changes:
+
+   ```bash
+   git commit -m "feat: add your feature"
+   ```
+
+5. Push your branch and open a Pull Request.
+
+Please include relevant documentation and testing when introducing new functionality.
+
+## 🙏 Acknowledgments
+
+Special thanks to the tools and open-source projects that make this implementation possible:
+
+- [Neo4j](https://neo4j.com/) — Graph database for storing and querying connected information.
+- [LangChain](https://www.langchain.com/) — Framework for building LLM-powered applications and RAG pipelines.
+- [OpenAI](https://openai.com/) — Language models and AI capabilities.
+- [Python](https://www.python.org/) — Core programming language.
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the [`LICENSE`](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+## 👨‍💻 Author
 
 **Pushpak Rai**
 
@@ -257,4 +384,4 @@ This project is licensed under the **MIT License**. See the [`LICENSE`](LICENSE)
 
 ---
 
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
+💡 *Connecting knowledge, relationships, and intelligence to build smarter RAG systems.* 🚀
