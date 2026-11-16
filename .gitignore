@@ -7,3 +7,4 @@ venv/
 .idea/
 # ignore the .env file
 .env"note-neo4j-creds.md" 
+"note-neo4j-creds.md" 
