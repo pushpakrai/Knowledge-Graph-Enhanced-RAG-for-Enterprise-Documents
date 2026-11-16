@@ -1,10 +1,11 @@
-
-# ignore the venv directory
+__pycache__/
+*.py[cod]
+*.egg-info/
 venv/
-# ignore the .vscode directory
+.venv/
 .vscode/
-# ignore the .idea directory
 .idea/
-# ignore the .env file
-.env"note-neo4j-creds.md" 
-"note-neo4j-creds.md" 
+.env
+.env.*
+!.env.example
+note-neo4j-creds.md
