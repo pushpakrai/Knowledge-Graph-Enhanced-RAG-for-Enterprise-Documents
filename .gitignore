@@ -1,14 +1,22 @@
+```gitignore
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
 
+# Virtual environments
 venv/
 .venv/
 
+# IDE settings
 .vscode/
 .idea/
 
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
+
+# Credential notes
 note-neo4j-creds.md
+```
