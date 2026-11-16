@@ -77,10 +77,19 @@ The exact processing steps and integrations may differ between modules. Refer to
 ```text
 Knowledge-Graph-Enhanced-RAG-for-Enterprise-Documents/
 │
-├── healthcare/          # Healthcare-focused example
-├── kgraph_rag/           # Knowledge graph RAG example
-├── prep_text_for_rag/    # Text preparation utilities / example
-├── simple_kg/            # Basic knowledge graph example
+├── healthcare/
+│   ├── health_care_kg.py
+│   ├── health_care_langchain.py
+│   └── healthcare.csv
+│
+├── kgraph_rag/
+│   └── roman_emp_graph_rag.py
+│
+├── prep_text_for_rag/
+│   └── app.py
+│
+├── simple_kg/
+│   └── kg_simple.py
 │
 ├── .gitignore
 ├── LICENSE
@@ -109,7 +118,7 @@ cd Knowledge-Graph-Enhanced-RAG-for-Enterprise-Documents
 
 ```cmd
 python -m venv .venv
-.venv\\Scripts\\activate
+.venv\Scripts\activate
 ```
 
 **macOS / Linux:**
@@ -128,7 +137,7 @@ pip install -r requirements.txt
 
 ### 5. Configure environment variables
 
-Create a local `.env` file in the location expected by the relevant module. Do not commit this file or place real credentials in source code, notebooks, documentation, screenshots, or Git history.
+Create a local `.env` file in the location expected by the relevant module. Never commit this file or place real credentials in source code, notebooks, documentation, screenshots, or Git history.
 
 Example template (use only the variable names actually read by your code):
 
@@ -153,14 +162,22 @@ python -c "from simple_kg.kg_simple import connect_and_query; connect_and_query(
 
 ### Knowledge Graph RAG example
 
-```bash
-python -c "from kgraph_rag.roman_emp_graph_rag import chain; print(chain.invoke('Ask a question about the Roman Empire'))"
+```python
+from kgraph_rag.roman_emp_graph_rag import chain
+
+response = chain.invoke("Ask a question about the Roman Empire")
+print(response)
 ```
 
 ### Healthcare example
 
-```bash
-python -c "from healthcare.health_care_langchain import health_care_chain; print(health_care_chain.invoke('Ask a question supported by the healthcare example data'))"
+```python
+from healthcare.health_care_langchain import health_care_chain
+
+response = health_care_chain.invoke(
+    "Ask a question supported by the healthcare example data"
+)
+print(response)
 ```
 
 ### Text preparation
@@ -169,7 +186,7 @@ python -c "from healthcare.health_care_langchain import health_care_chain; print
 python prep_text_for_rag/app.py
 ```
 
-These are example entry points based on the repository's module layout. If an import or command differs in your local checkout, inspect the relevant Python file for its actual entry point and required configuration.
+These are example entry points based on the repository's module layout. Verify the expected input format and configuration in each module before running the examples.
 
 ## 🧩 Core Concepts
 
@@ -217,7 +234,12 @@ These are potential application areas, not claims that this repository is a vali
 Contributions, suggestions, and issue reports are welcome.
 
 1. Fork the repository.
-2. Create a feature branch.
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feat/your-feature
+   ```
+
 3. Make a focused change and add or update tests where appropriate.
 4. Verify that no secrets or private data are included.
 5. Open a pull request with a clear description of the change.
@@ -236,4 +258,3 @@ This project is licensed under the **MIT License**. See the [`LICENSE`](LICENSE)
 ---
 
 If you find this project useful, consider giving the repository a ⭐ on GitHub.
-"""
