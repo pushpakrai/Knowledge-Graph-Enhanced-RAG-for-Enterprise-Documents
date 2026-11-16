@@ -19,7 +19,14 @@
 
 ## 🌟 Overview
 
-**Knowledge Graph Enhanced RAG for Enterprise Documents** is a Python-based implementation of Retrieval-Augmented Generation (RAG) systems that combines knowledge graphs, graph-based information retrieval, and Large Language Models (LLMs).
+**Knowledge Graph Enhanced RAG for Enterprise Documents** is a
+Python-based project exploring Retrieval-Augmented Generation (RAG)
+through knowledge graphs, Neo4j, LangChain, and Large Language Models.
+
+It demonstrates how structured knowledge representations,
+entity relationships, graph-based retrieval, and unstructured
+document information can work together to support contextual
+question answering and intelligent information discovery.
 
 Traditional RAG systems primarily retrieve information using semantic similarity from unstructured documents. Knowledge Graph RAG extends this approach by representing information as interconnected entities and relationships, enabling more structured retrieval and contextual understanding.
 
@@ -359,6 +366,10 @@ Special thanks to the tools and open-source projects that make this implementati
 - 🐍 **Python** — Core programming language.
 
 ---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 👨‍💻 Author
 
